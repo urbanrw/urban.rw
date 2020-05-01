@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: trigger netlify build hooks
+      uses: wei/curl@v1
+      with:
+        args: -X POST -d '{}' ${{ secrets.DEPLOY_HOOK }}

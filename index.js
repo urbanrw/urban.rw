@@ -67,7 +67,7 @@ async function sendMessage(form, feedbackDiv) {
             mode: 'cors',
         });
 
-        const resMessage = await response.json();
+        const resMessage = await response.text();
 
         if (!response.ok) {
             throw new Error(resMessage);
